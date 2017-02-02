@@ -14,8 +14,8 @@ void main() {
 
     printf("Lux: %f\n", getLux(fd));
 
-    // setGain(TSL2561_GAIN_16X);
-    setTiming(TSL2561_INTEGRATIONTIME_101MS);
+    setGain(TSL2561_GAIN_16X);
+    // setTiming(TSL2561_INTEGRATIONTIME_101MS);
 
     printf("Lux: %f\n", getLux(fd));
 

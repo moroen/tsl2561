@@ -22,5 +22,8 @@ lux: $(OBJDIR)/lux.o $(OBJDIR)/tsl2561.o
 python: $(SRCDIR)/tsl2561_py_module.c $(OBJDIR)/tsl2561.o
 	python3 setup.py build
 
+install: $(SRCDIR)/tsl2561_py_module.c $(OBJDIR)/tsl2561.o
+	python3 setup.py install
+
 clean:
 	rm -rf *.o lux build/* obj/*
