@@ -65,7 +65,7 @@ double getLux(int fd) {
 
     d0 = channel0; d1 = channel1; ratio = d1 / d0;
 
-    printf("channel0: %f channel1: %f ratio: %f\n", d0, d1, ratio);
+    // printf("channel0: %f channel1: %f ratio: %f\n", d0, d1, ratio);
 
     // Normalize for integration time
     double ms = getTimingInMS();
@@ -78,7 +78,7 @@ double getLux(int fd) {
         d1 *= 16;
     }
 
-    printf("Normalized channel0: %f Normalized channel1: %f ratio: %f\n", d0, d1, ratio);
+    // printf("Normalized channel0: %f Normalized channel1: %f ratio: %f\n", d0, d1, ratio);
 
     // Calculate lux
 
