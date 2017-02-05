@@ -1,4 +1,5 @@
 CC=gcc
+#CFLAGS= -DDEBUG
 CFLAGS=
 INCLUDES= -I. -I./src -I/usr/include/python3.4
 LIBS=-lwiringPi -lpython3.4m -lm

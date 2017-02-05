@@ -28,11 +28,6 @@ int getRawData(int fd) {
     // enable device
     wiringPiI2CWriteReg8(fd, TSL2561_COMMAND_BIT, TSL2561_CONTROL_POWERON);
 
-    // Check current gain
-
-    // test = wiringPiI2CReadReg8(fd, 0x81);
-    // printf("Timing: %d\n", test);
-
     // Set gain and timing
     wiringPiI2CWriteReg8(fd, TSL2561_REGISTER_TIMING, tslGain | tslTiming);
 
@@ -65,7 +60,9 @@ double getLux(int fd) {
 
     d0 = channel0; d1 = channel1; ratio = d1 / d0;
 
-    // printf("channel0: %f channel1: %f ratio: %f\n", d0, d1, ratio);
+#ifdef DEBUG
+    printf("channel0: %f channel1: %f ratio: %f\n", d0, d1, ratio);
+#endif /* DEBUG */
 
     // Normalize for integration time
     double ms = getTimingInMS();
@@ -78,7 +75,9 @@ double getLux(int fd) {
         d1 *= 16;
     }
 
-    // printf("Normalized channel0: %f Normalized channel1: %f ratio: %f\n", d0, d1, ratio);
+#ifdef DEBUG
+    printf("Normalized channel0: %f Normalized channel1: %f ratio: %f\n", d0, d1, ratio);
+#endif /* DEBUG */
 
     // Calculate lux
 
