@@ -35,5 +35,5 @@ def DomoticzRequest(params):
 
 
 if __name__ == '__main__':
-    param = "type=command&param=udevice&idx={0}&svalue={1}".format(targetIDX, str(ts.lux("")))
+    param = "type=command&param=udevice&idx={0}&svalue={1}".format(targetIDX, str(ts.lux()))
     DomoticzRequest(param)

@@ -11,16 +11,17 @@
 
 
 static PyObject *
-lux(PyObject *self, PyObject *args)
+lux(PyObject *self, PyObject *noarg)
 {
-    const char *command;
+    // const char *command;
     // int sts;
     int fd = 0;
     // int lux;
 
+    /*
     if (!PyArg_ParseTuple(args, "s", &command))
         return NULL;
-
+        */
     fd = wiringPiI2CSetup(TSL2561_ADDR_LOW);
 
     return PyLong_FromLong(getLux(fd));
@@ -28,7 +29,7 @@ lux(PyObject *self, PyObject *args)
 
 // Module commands
 static PyMethodDef tsl2562Methods[] = {
-    {"lux",  lux, METH_VARARGS,
+    {"lux",  lux, METH_NOARGS,
      "Get lux."},
     {NULL, NULL, 0, NULL}        /* Sentinel */
 };
